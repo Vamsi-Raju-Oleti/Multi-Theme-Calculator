@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-color="purple">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Theme Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Calculator</h1>
+            <div class="controls">
+                <div class="color-picker">
+                    <button class="color-dot" data-color="purple" style="--dot-color: #b768ff;" aria-label="Purple Theme"></button>
+                    <button class="color-dot" data-color="blue" style="--dot-color: #00d2ff;" aria-label="Blue Theme"></button>
+                    <button class="color-dot" data-color="green" style="--dot-color: #00e676;" aria-label="Green Theme"></button>
+                    <button class="color-dot" data-color="orange" style="--dot-color: #ff9100;" aria-label="Orange Theme"></button>
+                </div>
+                
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="calculator-card">
+            <div class="display">
+                <div class="previous-operand" data-previous-operand></div>
+                <div class="current-operand" data-current-operand>0</div>
+            </div>
+            
+            <div class="keypad">
+                <button class="btn btn-action" data-all-clear>C</button>
+                <button class="btn btn-action" data-delete>⌫</button>
+                <button class="btn btn-action" data-operation>%</button>
+                <button class="btn btn-operator" data-operation>÷</button>
+                
+                <button class="btn" data-number>7</button>
+                <button class="btn" data-number>8</button>
+                <button class="btn" data-number>9</button>
+                <button class="btn btn-operator" data-operation>×</button>
+                
+                <button class="btn" data-number>4</button>
+                <button class="btn" data-number>5</button>
+                <button class="btn" data-number>6</button>
+                <button class="btn btn-operator" data-operation>-</button>
+                
+                <button class="btn" data-number>1</button>
+                <button class="btn" data-number>2</button>
+                <button class="btn" data-number>3</button>
+                <button class="btn btn-operator" data-operation>+</button>
+                
+                <button class="btn btn-zero" data-number>0</button>
+                <button class="btn" data-number>.</button>
+                <button class="btn btn-equals" data-equals>=</button>
+            </div>
+        </main>
+
+        <footer>Built with HTML, CSS & JavaScript</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

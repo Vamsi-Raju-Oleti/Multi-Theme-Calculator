@@ -1,0 +1,316 @@
+/* Base Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --action-color: #ff4d6d;
+}
+
+/* =========================================
+   MULTI-THEME COLOR PALETTES
+========================================= */
+
+/* 1. Purple Theme (Default) */
+[data-color="purple"] {
+    --accent-color: #b768ff;
+    --accent-hover: #c98cff;
+    --neon-glow: 0 0 15px rgba(183, 104, 255, 0.4);
+    --bg-dark: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --bg-light: linear-gradient(135deg, #f6f0ff, #e3d5ff, #ffffff);
+}
+
+/* 2. Ocean Blue Theme */
+[data-color="blue"] {
+    --accent-color: #00d2ff;
+    --accent-hover: #3adaff;
+    --neon-glow: 0 0 15px rgba(0, 210, 255, 0.4);
+    --bg-dark: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --bg-light: linear-gradient(135deg, #e0f2fe, #bae6fd, #ffffff);
+}
+
+/* 3. Forest Green Theme */
+[data-color="green"] {
+    --accent-color: #00e676;
+    --accent-hover: #33ffa0;
+    --neon-glow: 0 0 15px rgba(0, 230, 118, 0.4);
+    --bg-dark: linear-gradient(135deg, #093028, #237a57, #093028);
+    --bg-light: linear-gradient(135deg, #ecfdf5, #a7f3d0, #ffffff);
+}
+
+/* 4. Sunset Orange Theme */
+[data-color="orange"] {
+    --accent-color: #ff9100;
+    --accent-hover: #ffad40;
+    --neon-glow: 0 0 15px rgba(255, 145, 0, 0.4);
+    --bg-dark: linear-gradient(135deg, #381500, #733000, #381500);
+    --bg-light: linear-gradient(135deg, #fff7ed, #fed7aa, #ffffff);
+}
+
+/* =========================================
+   DARK & LIGHT MODES (Base Application)
+========================================= */
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-gradient: var(--bg-dark);
+    --card-bg: rgba(20, 20, 30, 0.5);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --btn-bg: rgba(255, 255, 255, 0.05);
+    --btn-hover: rgba(255, 255, 255, 0.1);
+    --btn-active: rgba(255, 255, 255, 0.15);
+    --display-bg: rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode */
+[data-theme="light"] {
+    --bg-gradient: var(--bg-light);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    --text-primary: #2d2a3d;
+    --text-secondary: #6b6680;
+    --btn-bg: rgba(255, 255, 255, 0.8);
+    --btn-hover: rgba(0, 0, 0, 0.04);
+    --btn-active: rgba(0, 0, 0, 0.08);
+    --display-bg: rgba(255, 255, 255, 0.5);
+}
+
+/* Global Body Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header & Controls */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Multi-Theme Color Picker */
+.color-picker {
+    display: flex;
+    gap: 8px;
+    background: var(--btn-bg);
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--dot-color);
+    opacity: 0.3;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+}
+
+.color-dot:hover {
+    opacity: 0.8;
+}
+
+.color-dot.active {
+    opacity: 1;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px var(--dot-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: var(--btn-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--btn-hover);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+[data-theme="dark"] #moon-icon { display: none; }
+[data-theme="light"] #sun-icon { display: none; }
+
+/* Calculator Card (Glassmorphism) */
+.calculator-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.5s ease;
+}
+
+/* Display Screen */
+.display {
+    background: var(--display-bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 100px;
+    transition: background 0.5s ease;
+}
+
+.previous-operand {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    min-height: 24px;
+}
+
+.current-operand {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Keypad Grid */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Buttons */
+.btn {
+    position: relative;
+    overflow: hidden;
+    background: var(--btn-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.btn:hover {
+    background: var(--btn-hover);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    background: var(--btn-active);
+}
+
+.btn-operator {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
+}
+
+.btn-action {
+    color: var(--action-color);
+    font-weight: 600;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-equals {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: var(--neon-glow);
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.btn-equals:hover {
+    background: var(--accent-hover);
+}
+
+/* Ripple Animation */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="light"] .ripple {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-equals .ripple {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
