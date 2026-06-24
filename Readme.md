@@ -2,6 +2,8 @@
 
 A premium, modern calculator web application built with HTML, CSS, and Vanilla JavaScript. Designed for a developer portfolio, this project features a stunning glassmorphism UI, smooth animations, and a fully customizable multi-theme experience.
 
+🌐 Live Demo : https://vamsi-raju-oleti.github.io/Multi-Theme-Calculator/
+
 ## 🚀 Features
 
 - **Core Functionality:** Basic arithmetic operations (+, -, ×, ÷, %), decimal support, clear, and delete.
